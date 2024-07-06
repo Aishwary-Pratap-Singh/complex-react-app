@@ -5,7 +5,7 @@ import ReactDOM from "react-dom";
 import Header from "./components/Header";
 import HomeGuest from "./components/HomeGuest";
 import Footer from "./components/Footer";
-function ExampleComponent() {
+function Main() {
   return (
     <>
       <Header />
@@ -16,7 +16,7 @@ function ExampleComponent() {
 }
 
 const root = ReactDOM.createRoot(document.querySelector("#app"));
-root.render(<ExampleComponent />);
+root.render(<Main />);
 
 if (module.hot) {
   module.hot.accept();
