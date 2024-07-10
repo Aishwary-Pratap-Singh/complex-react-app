@@ -1,19 +1,19 @@
 import React from "react";
 import Page from "./Page";
-import { Axios } from "axios";
+import axios from "axios";
 
 function HomeGuest() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await Axios.post("http://localhost:8080/register", {
-        username: "test",
-        email: "test@test.com",
+      await axios.post("http://localhost:8080/register", {
+        username: "test1",
+        email: "test1@test.com",
         password: "qwerty123456",
       });
       console.log("user was successfully created.");
     } catch (e) {
-      console.log("there was an error.");
+      console.log(`there was an error: ${e}.`);
     }
   }
   return (
