@@ -12,7 +12,11 @@ function HeaderLoggedOut() {
         username,
         password,
       });
-      console.log(response.data);
+      if (response.data) {
+        console.log(response.data);
+      } else {
+        console.log("Incorrect username / password.");
+      }
     } catch (e) {
       console.log(`There was a problem ${e}.`);
     }
