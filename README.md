@@ -7,3 +7,6 @@ helper repo: https://github.com/LearnWebCode/react-course/blob/master/01-webpack
 npm install @babel/core @babel/preset-env @babel/preset-react babel-loader
 
 npm install react-router-dom
+
+username = newuser
+password = qwerty123456
