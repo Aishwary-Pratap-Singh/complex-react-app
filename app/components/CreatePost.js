@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Page from "./Page";
 import axios from "axios";
-function CreatePost() {
+function CreatePost(props) {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
   const navigate = useNavigate();
@@ -15,6 +15,7 @@ function CreatePost() {
         token: localStorage.getItem("complexappToken"),
       });
       // redirect to new post url
+      props.addFlashMessage("Congrats, you successfully created a post.");
       navigate(`/post/${response.data}`);
       console.log("new post was created.");
     } catch (e) {
