@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Page from "./Page";
 import axios from "axios";
-function CreatePost(props) {
+import ExampleContext from "../ExampleContext";
+
+function CreatePost() {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
   const navigate = useNavigate();
+  const { addFlashMessage } = useContext(ExampleContext);
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
@@ -15,7 +19,7 @@ function CreatePost(props) {
         token: localStorage.getItem("complexappToken"),
       });
       // redirect to new post url
-      props.addFlashMessage("Congrats, you successfully created a post.");
+      addFlashMessage("Congrats, you successfully created a post !!");
       navigate(`/post/${response.data}`);
       console.log("new post was created.");
     } catch (e) {
