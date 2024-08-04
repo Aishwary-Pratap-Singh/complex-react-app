@@ -3,19 +3,22 @@ import { useNavigate } from "react-router-dom";
 import Page from "./Page";
 import axios from "axios";
 import DispatchContext from "../DispatchContext";
+import StateContext from "../StateContext";
 
 function CreatePost() {
   const [title, setTitle] = useState();
   const [body, setBody] = useState();
   const navigate = useNavigate();
   const appDispatch = useContext(DispatchContext);
+  const appState = useContext(StateContext);
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
       const response = await axios.post("/create-post", {
         title,
         body,
-        token: localStorage.getItem("complexappToken"),
+        token: appState.user.token,
       });
       // redirect to new post url
       appDispatch({
